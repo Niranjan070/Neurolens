@@ -184,10 +184,10 @@ with st.sidebar:
         | 📊 Tabular | Security | SHAP TreeExplainer |
 
         ---
-        ### Quick-Start (Viva)
-        1. Click any **preset** button inside each tab
+        ### Quick-Start Guide
+        1. Select any **preset** demo or enter custom input
         2. Press the **Analyze / Run** button
-        3. Observe the highlighted output + metrics
+        3. Inspect the real-time attribution highlights & charts
 
         ---
         ### Models Used
@@ -196,18 +196,18 @@ with st.sidebar:
         - `RandomForestClassifier` (trained in-session)
 
         ---
-        ### Rubric Mapping
-        ✅ GUI Application  
-        ✅ Tabular XAI (SHAP)  
-        ✅ Image XAI (CLIP patches)  
-        ✅ Text XAI (Captum LIG)  
-        ✅ Innovation (LLM guardrails + VL grounding)  
-        ✅ All CPU — no GPU / API key required
+        ### Capabilities
+        ✅ Interactive Multi-Tab Workbench  
+        ✅ Tabular Explainability (SHAP)  
+        ✅ Computer Vision Grounding (CLIP ViT)  
+        ✅ Text Transformer Attribution (Captum LIG)  
+        ✅ Enterprise Guardrail Risk Auditing  
+        ✅ 100% Local CPU Execution (No API Keys)
         """
     )
     st.markdown("---")
     st.markdown(
-        "<small style='color:#555'>Built for IA3 Evaluation · All models run on CPU</small>",
+        "<small style='color:#555'>NeuroLens XAI Workbench · 100% CPU Inference</small>",
         unsafe_allow_html=True,
     )
 
@@ -294,7 +294,7 @@ with tab3:
 st.markdown("---")
 st.markdown(
     "<div style='text-align:center; color:#555; font-size:13px;'>"
-    "NeuroLens XAI Workbench · IA3 Portfolio Project · "
+    "NeuroLens XAI Workbench · "
     "Captum &nbsp;|&nbsp; HuggingFace Transformers &nbsp;|&nbsp; SHAP &nbsp;|&nbsp; Streamlit"
     "</div>",
     unsafe_allow_html=True,

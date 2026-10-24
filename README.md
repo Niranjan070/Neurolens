@@ -131,17 +131,17 @@ The app will launch at **http://localhost:8501** in your browser.
 
 ---
 
-## 📐 Rubric Mapping
+## 📐 Feature & Capability Matrix
 
-| Academic Requirement | Implementation |
-|---------------------|---------------|
-| **GUI-based application** | Streamlit multi-tab workbench with reactive charts & UI controls |
-| **Tabular XAI** | RandomForest + SHAP TreeExplainer + live counterfactual sliders |
-| **Image XAI** | CLIP ViT patch cosine similarity spatial grounding heatmap |
-| **Text XAI** | DistilBERT-SQuAD extractive QA + dual Start/End Captum Layer Integrated Gradients |
-| **High-quality visualizations** | Annotated text spans, Jet overlay heatmaps, SHAP waterfall & global bar charts |
-| **Innovation factor** | Modern GenAI interpretability (LLM guardrail audit, VLM grounding, Transformer QA attribution) |
-| **CPU-only execution** | Lightweight models engineered to run smoothly on standard laptops without GPU |
+| Capability / Dimension | Implementation Detail |
+|-----------------------|-----------------------|
+| **Interactive GUI Workbench** | Streamlit multi-tab architecture with reactive controls & real-time analytics |
+| **Tabular Interpretability** | RandomForest + SHAP TreeExplainer + dynamic counterfactual sliders |
+| **Computer Vision Grounding** | CLIP ViT-B/32 patch cosine similarity spatial attention heatmap |
+| **Transformer Text Attribution** | DistilBERT-SQuAD extractive QA + dual Start/End Captum Layer Integrated Gradients |
+| **Explainability Visualizations** | Dual-span attribution heatmaps, Jet overlays, SHAP waterfall & global bar charts |
+| **Modern GenAI Relevance** | Enterprise LLM guardrail auditing, VLM grounding, deep transformer QA interpretability |
+| **100% Local CPU Execution** | Lightweight models architected for fast client-side inference without GPU or API keys |
 
 ---
 
@@ -170,4 +170,4 @@ The app will launch at **http://localhost:8501** in your browser.
 
 ---
 
-*Built for IA3 Evaluation — Explainable AI Portfolio Project*
+*NeuroLens — Open-Source Explainable AI (XAI) Workbench*

@@ -25,7 +25,7 @@ from captum.attr import LayerIntegratedGradients
 # ---------------------------------------------------------------------------
 MODEL_NAME = "distilbert-base-cased-distilled-squad"
 
-# Preloaded context + question pairs for 1-click viva testing
+# Preloaded context + question pairs for 1-click demonstration
 PRESETS = [
     {
         "label": "🏛️ History",
