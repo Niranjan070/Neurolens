@@ -22,6 +22,27 @@ NeuroLens is a Streamlit-based interactive workbench that applies state-of-the-a
 | 🖼️ Image | Computer Vision | CLIP (`openai/clip-vit-base-patch32`) | Visual Grounding | Spatial Patch Cosine Similarity Heatmap |
 | 📊 Tabular | Prompt Security | Scikit-Learn `RandomForestClassifier` | LLM Guardrail Risk Scoring | SHAP TreeExplainer + Live Counterfactuals |
 
+### 🏛️ System Architecture
+
+```mermaid
+flowchart TD
+    UI[Streamlit GUI Workbench] --> T1[Tab 1: NLP Extractive QA]
+    UI --> T2[Tab 2: VLM Spatial Grounding]
+    UI --> T3[Tab 3: LLM Guardrail Risk]
+
+    T1 -->|Context + Question| DB[DistilBERT-SQuAD]
+    DB -->|Gradients| CPT[Captum LayerIntegratedGradients]
+    CPT --> V1[Token Attribution Spans]
+
+    T2 -->|Image + Prompt| CLIP[CLIP ViT-B/32]
+    CLIP -->|Forward Hook| P49[49 Spatial Patches]
+    P49 --> V2[Jet Heatmap Overlay]
+
+    T3 -->|Security Metrics| RF[RandomForest Guardrail]
+    RF -->|Coalition Values| SHAP[SHAP TreeExplainer]
+    SHAP --> V3[Waterfall & Counterfactuals]
+```
+
 ---
 
 ## 📁 Repository Structure
@@ -103,6 +124,14 @@ The app will launch at **http://localhost:8501** in your browser.
 
 **Technique:** `captum.attr.LayerIntegratedGradients` applied to `model.distilbert.embeddings`.
 
+<details>
+<summary><b>📐 Formal Mathematical Formulation: Integrated Gradients</b></summary>
+
+$$\text{IG}_i(x) = (x_i - x'_i) \times \int_{0}^{1} \frac{\partial F(x' + \alpha(x - x'))}{\partial x_i} \, d\alpha$$
+
+*(Where $x$ is the input token embedding, $x'$ is the baseline zero-embedding, $\alpha$ denotes the path-integral interpolation parameter, and $\frac{\partial F(\cdot)}{\partial x_i}$ is the gradient of the answer start/end logit with respect to token dimension $i$.)*
+</details>
+
 ---
 
 ### Tab 2 — 🖼️ Image Interpretability (Visual Grounding Heatmap)
@@ -116,6 +145,14 @@ The app will launch at **http://localhost:8501** in your browser.
 
 **Technique:** Spatial patch activation projection with cosine similarity grounding, bilinearly interpolated onto image coordinates.
 
+<details>
+<summary><b>📐 Formal Mathematical Formulation: Patch Cosine Grounding</b></summary>
+
+$$S(p_j, t) = \frac{W_v \cdot p_j \cdot W_t \cdot t}{\Vert{}W_v \cdot p_j\Vert{}_2 \, \Vert{}W_t \cdot t\Vert{}_2}$$
+
+*(Where $p_j$ is the $j$-th spatial token embedding from the ViT encoder ($j \in \{1, \dots, 49\}$), $W_v$ is CLIP's visual projection head, $W_t$ is the text projection head, and $t$ is the text prompt projection).*
+</details>
+
 ---
 
 ### Tab 3 — 📊 Tabular Guardrails (Prompt Risk Scoring & Counterfactuals)
@@ -128,6 +165,14 @@ The app will launch at **http://localhost:8501** in your browser.
   - Global feature importance analysis using TreeExplainer.
 
 **Innovation:** Enterprise GenAI guardrail framing evaluating prompt injection signals rather than toy legacy datasets.
+
+<details>
+<summary><b>📐 Formal Mathematical Formulation: Shapley Additive Attribution</b></summary>
+
+$$\phi_i(v) = \sum_{S \subseteq N \setminus \{i\}} \frac{\vert{}S\vert{}!(\vert{}N\vert{} - \vert{}S\vert{} - 1)!}{\vert{}N\vert{}!} [v(S \cup \{i\}) - v(S)]$$
+
+*(Where $N$ is the set of all input guardrail telemetry features, $S$ is any coalition subset excluding feature $i$, and $v(S)$ represents the characteristic model prediction value conditioned on subset $S$.)*
+</details>
 
 ---
 
