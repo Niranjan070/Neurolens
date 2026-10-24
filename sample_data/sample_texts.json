@@ -1,0 +1,20 @@
+[
+  {
+    "category": "History",
+    "context": "The Eiffel Tower is a wrought-iron lattice tower located on the Champ de Mars in Paris, France. It was constructed from 1887 to 1889 as the centerpiece of the 1889 World's Fair. The tower is named after Gustave Eiffel, whose company designed and built it. It stands 330 metres tall and is the most-visited paid monument in the world.",
+    "question": "When was the Eiffel Tower constructed?",
+    "ground_truth_answer": "1887 to 1889"
+  },
+  {
+    "category": "AI / Machine Learning",
+    "context": "Transformers are a type of deep learning architecture introduced in the paper 'Attention Is All You Need' by Vaswani et al. in 2017. They rely entirely on a self-attention mechanism to compute representations of their input and output without using sequence-aligned recurrent neural networks. BERT, GPT, and T5 are all based on the Transformer architecture and have revolutionised natural language processing.",
+    "question": "What mechanism do Transformers rely on?",
+    "ground_truth_answer": "self-attention mechanism"
+  },
+  {
+    "category": "Natural Science",
+    "context": "Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. It takes place primarily in the chloroplasts of plant cells, using carbon dioxide from the air and water from the soil. Oxygen is released as a by-product of this reaction. Photosynthesis is the foundation of almost all food chains on Earth.",
+    "question": "Where does photosynthesis take place in plant cells?",
+    "ground_truth_answer": "chloroplasts of plant cells"
+  }
+]
